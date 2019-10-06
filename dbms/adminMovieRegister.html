@@ -8,6 +8,12 @@
 <body bgcolor="black" text="white">
     <div class="background"></div>
     <div class="frame">
+
+        <form action="http://localhost:3000/movieDatabase/upload" method="post" enctype="multipart/form-data">
+            <input name="myImage" type="file">
+            <input type="submit" value="Upload">
+        </form>
+
         <form action="http://localhost:3000/movieDatabase/movieAdd" method="post">
             <p class="heading">Enter movie details.</p>
             Movie name :            <input name="movieName" class="input" id="movieName" type="text" placeholder="eg. Kal ho na ho"><br>

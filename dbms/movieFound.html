@@ -7,10 +7,13 @@
 </head>
 <body bgcolor="black">
 <div class="parentFrame">
+
         <% for (var i=0; i < name.length; i++) {%>
             <div class="childFrame">
                 <div class="heading"><%= name[i].movieName %></div>
-                <div class="poster"></div>
+                <div class="poster">
+                    <img src= <%= name[i].imageLink %> style="width: inherit"/>
+                </div>
                 <div class="content">
                     <br><br>
                     <div class="text">Lead actor : <%= name[i].actorName %> </div><br>

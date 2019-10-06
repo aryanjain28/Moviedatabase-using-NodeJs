@@ -6,7 +6,9 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var promise = require('promise');
 var route = express.Router();
+var multer = require('multer');
 
+var imageLink;
 
 app.engine('html', require('ejs').renderFile);
 app.use(express.static(path.join(__dirname, '..')));
@@ -20,10 +22,37 @@ var connection = mysql.createConnection({
     database:'adminDatabase'
 });
 
-var sql1 = "CREATE TABLE IF NOT EXISTS movieTable (movieName VARCHAR(255) PRIMARY KEY, actorName VARCHAR(255), movieDate VARCHAR(255), movieRating INT, movieBudget INT, movieGross INT)";
+const storage = multer.diskStorage({
+    destination:path.join(path.join(__dirname, ".."), './uploads'),
+    filename:function (request, file, cb) {
+        cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({
+    storage : storage
+}).single('myImage');
+
+var sql1 = "CREATE TABLE IF NOT EXISTS movieTable (movieName VARCHAR(255) PRIMARY KEY, actorName VARCHAR(255), movieDate VARCHAR(255), movieRating INT, movieBudget INT, movieGross INT, posterPath VARCHAR(255))";
 connection.query(sql1, function (Error, Result) {
      if (Error) throw Error;
      console.log("movieTable created!!");
+});
+
+route.post('/upload', function (request, response) {
+    upload(request, response, function (error) {
+        if (error) {
+            response.render('adminMovieRegister.html', {
+                msg:error
+            });
+        }
+        else {
+            imageLink = "http://localhost:3000/uploads/"+request.file.filename;
+            console.log(request.file.filename);
+            console.log(imageLink);
+            response.send("<center><h1><i>Image uploaded!<i><h1><center>")
+        }
+    });
 });
 
 route.post('/movieAdd', function (request, response) {
@@ -36,7 +65,7 @@ route.post('/movieAdd', function (request, response) {
     var movieGross = parseInt(request.body.movieGross);
 
     let sql2 = "INSERT INTO movieTable VALUES ?";
-    let values = [[movieName, actorName, movieDate, movieRating, movieBudget, movieGross]];
+    let values = [[movieName, actorName, movieDate, movieRating, movieBudget, movieGross, imageLink]];
 
     connection.query(sql2, [values], function (Error) {
         if (Error) throw Error;
