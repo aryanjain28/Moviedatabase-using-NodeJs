@@ -7,7 +7,7 @@
 }
 
 body{
-	background-image: url("http://localhost:3000/images/background1.png");
+	background-image: url("http://localhost:3000/images/background1.jpg");
 	background-repeat: no-repeat;
     background-size: 100% 800px;
 }
@@ -18,11 +18,11 @@ div{
   	box-shadow: 10px 10px 85px rgba(0,0,0,1);
   	border-radius: 5px;
   	padding: 50px;
-  	padding-left: 120px;
-  	padding-right: 120px;
+  	padding-left: 70px;
+  	padding-right: 70px;
   	position: fixed;
-  	top: 20%;
-  	left: 33%;
+  	top: 15%;
+  	left: 60%;
 }
 
 input[type=email],input[type=Password],input[type=text]{

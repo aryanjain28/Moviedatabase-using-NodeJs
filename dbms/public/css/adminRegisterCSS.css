@@ -22,6 +22,7 @@ body, html {
 }
 
 .link, a{
+    padding-bottom: 5px;
     text-align: center;
     color: #F5F5F5;
     margin: 15px;
