@@ -60,39 +60,71 @@ route.post('/movieAdd', function (request, response) {
     var movieName = request.body.movieName;
     var actorName = request.body.actorName;
     var movieDate = request.body.movieDate;
-    var movieRating = parseInt(request.body.movieRating);
-    var movieBudget = parseInt(request.body.movieBudget);
-    var movieGross = parseInt(request.body.movieGross);
+    var movieRating = parseInt(request.body.movieRating.trim());
+    var movieBudget = parseInt(request.body.movieBudget.trim());
+    var movieGross = parseInt(request.body.movieGross.trim());
 
-    let sql2 = "INSERT INTO movieTable VALUES ?";
-    let values = [[movieName, actorName, movieDate, movieRating, movieBudget, movieGross, imageLink]];
+    console.log('reach');
 
-    connection.query(sql2, [values], function (Error) {
-        if (Error) throw Error;
-        console.log("Movie data inserted!")
-    });
+    if (movieName === "" || actorName === "" || movieDate === "" || movieRating === "" || movieBudget === "" || movieGross === ""){
+        response.send("<center><h2 style='font-family: Chandas'>'Undefined' Error! :: All fields are required!</h2></center>");
+    }
+    else if (movieRating < 1 || movieRating > 5){
+        response.send("<center><h2 style='font-family: Chandas'>'Input Error!' :: Please select a range between 0 and 5 for rating.</h2></center>");
+    }
+    else{
+        if (imageLink === null){
+            response.send("<center><h2 style='font-family: Chandas'>'Input Error!' :: Please add a poster.</h2></center>");
+        }
+        else {
+            let sql9 = "SELECT * FROM movieTable WHERE movieName = ? ";
+            let valueMovie = [[movieName]];
 
-     response.writeHead(200, {"Content-Type":"text/html"});
-     fs.createReadStream('/home/aryan/WebstormProjects/dbms/movieAdded.html').pipe(response);
+            connection.query(sql9, valueMovie, function (Error, Result) {
+                if (Result.length === 0){
+                    let sql2 = "INSERT INTO movieTable VALUES ?";
+                    let values = [[movieName, actorName, movieDate, movieRating, movieBudget, movieGross, imageLink]];
+
+                    connection.query(sql2, [values], function (Error) {
+                        if (Error) throw Error;
+                        console.log("Movie data inserted!")
+                    });
+
+                    response.writeHead(200, {"Content-Type":"text/html"});
+                    fs.createReadStream('/home/aryan/WebstormProjects/dbms/movieAdded.html').pipe(response);
+                }
+                else {
+                    response.send("<center><h2 style='font-family: Chandas'>'Duplicate Error!' :: Movie already exists in database.</h2></center>");
+                }
+            });
+        }
+    }
  });
 
  route.get('/getMovie', function (request, response) {
-     var movieData = request.query.searchElement;
-     var sqlFind = "SELECT * FROM movieTable WHERE movieName = ? OR actorName = ?";
-     var values = [movieData, movieData];
+     var movieData = request.query.searchElement.trim();
 
-     connection.query(sqlFind, values,function (Error, Result) {
-         if (Error) throw Error;
-         if (Result.length == 0){
-             insertIntoNotFoundTable(movieData);
-             response.writeHead(200, {"Content-Type":"text/html"});
-             fs.createReadStream('/home/aryan/WebstormProjects/dbms/movieNOTFound.html').pipe(response);
-         }
-         else {
-             console.log(Result);
-             response.render(path.join(__dirname, "../..") + "/movieFound.html", {name:Result});
-         }
-     });
+     if (movieData != ""){
+         var sqlFind = "SELECT * FROM movieTable WHERE movieName = ? OR actorName = ?";
+         var values = [movieData, movieData];
+
+         connection.query(sqlFind, values,function (Error, Result) {
+             if (Error) throw Error;
+             if (Result.length == 0){
+                 insertIntoNotFoundTable(movieData);
+                 response.writeHead(200, {"Content-Type":"text/html"});
+                 fs.createReadStream('/home/aryan/WebstormProjects/dbms/movieNOTFound.html').pipe(response);
+             }
+             else {
+                 console.log(Result);
+                 response.render(path.join(__dirname, "../..") + "/movieFound.html", {name:Result});
+             }
+         });
+     }
+     else {
+         response.send("<center><h2 style='font-family: Chandas'>'Undefined Error!' :: Please enter input paramters.</h2></center>");
+
+     }
  });
 
  function insertIntoNotFoundTable(data){

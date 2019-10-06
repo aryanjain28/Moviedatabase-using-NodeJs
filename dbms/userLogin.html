@@ -8,9 +8,9 @@
 	<div>
 		<p class="heading">Log In</p>
 		<form action="http://localhost:3000/userDatabase/userLogin" method="post">
-			<input name="userEmail" type="email" placeholder="Email"><br><br>
-			<input name="userPassword" type="password" placeholder="Password"><br><br>
-			<input type="submit" value="Log In"><br><br>
+			<input id="email" name="userEmail" type="email" placeholder="Email"><br><br>
+			<input id="password" name="userPassword" type="password" placeholder="Password"><br><br>
+			<input type="submit" value="Log In" onclick="check()"><br><br>
 			<p class="text">Create an account<u><a href="http://localhost:3000/goToUserRegister"> here.</a></u></p>
 			<p class="text">Admin login <u><a href="http://localhost:3000/goToAdminLogin"> here.</a></u></p>
 		</form>

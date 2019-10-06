@@ -27,20 +27,44 @@ connection.query(sql1, function (Error) {
 
 route.post('/userAdd', function (request, response) {
 
-    var userName = request.body.userName;
-    var userEmail = request.body.userEmail;
-    var userPassword = request.body.userPassword;
+    var userName = request.body.userName.trim();
+    var userEmail = request.body.userEmail.trim();
+    var userPassword = request.body.userPassword.trim();
+    var userConfirmPassword = request.body.userConfirmPassword.trim();
 
-    let sql2 = "INSERT INTO userTable VALUES ?";
-    let values = [[userName, userEmail, userPassword]];
+    if (userName === "" || userPassword === "" || userEmail === ""){
+        response.send("<center><h2 style='font-family: Chandas'>'Undefined' Error! :: All fields are required!</h2></center>");
+    }
+    else if(userPassword != userConfirmPassword){
+        response.send("<center><h2 style='font-family: Chandas'>'Match' Error! :: Password do not match!</h2></center>");
+    }
+    else {
+        let sql4 = "SELECT * FROM userTable WHERE userEmail = ?";
+        var values = [userEmail];
 
-    connection.query(sql2, [values], function (Error) {
-        if (Error) throw Error;
-        console.log("User data inserted!")
-    });
+        connection.query(sql4, values, function (Error, Result) {
+            if (Error) throw Error;
+            if (Result.length === 0) {
 
-    response.writeHead(200, {"Content-Type":"text/html"});
-    fs.createReadStream('/home/aryan/WebstormProjects/dbms/movieSearch.html').pipe(response);
+                let sql2 = "INSERT INTO userTable VALUES ?";
+                let values = [[userName, userEmail, userPassword]];
+
+                connection.query(sql2, [values], function (Error) {
+                    if (Error) throw Error;
+                    console.log("User data inserted!")
+                });
+
+                response.writeHead(200, {"Content-Type": "text/html"});
+                fs.createReadStream('/home/aryan/WebstormProjects/dbms/movieSearch.html').pipe(response);
+
+            } else {
+                response.send("<center><h2 style='font-family: Chandas'>Email already registered!<br></h2></center>");
+            }
+            console.log(Result)
+        });
+    }
+
+
 });
 
 route.post('/userLogin', function (request, response) {
@@ -48,16 +72,28 @@ route.post('/userLogin', function (request, response) {
     var userEmail = request.body.userEmail;
     var userPassword = request.body.userPassword;
 
-    let sql2 = "SELECT * FROM userTable WHERE userEmail = ? AND userPassword = ?";
-    var values = ["'"+userEmail+"'", "'"+userPassword+"'"];
+    console.log(userEmail);
+    console.log(userPassword);
 
-    connection.query(sql2, values, function (Error) {
-        if (Error) throw Error;
-        console.log("User logged in.")
-    });
+    if (userEmail === "" || userPassword === ""){
+        response.send("<center><h2 style='font-family: Chandas'>'Undefined' Error! :: All fields are required!</h2></center>");
+    }
+    else {
 
-    response.writeHead(200, {"Content-Type":"text/html"});
-    fs.createReadStream('/home/aryan/WebstormProjects/dbms/movieSearch.html').pipe(response);
+        let sql2 = "SELECT * FROM userTable WHERE userEmail = ? AND userPassword = ? ";
+        var values = [userEmail, userPassword];
+
+        connection.query(sql2, values, function (Error, Result) {
+            if (Error) throw Error;
+            if (Result.length === 0) {
+                response.send("<center><h2 style='font-family: Chandas'>User not registered in our database.<br>or else, ID/PASSWORD incorrect!</h2></center>");
+            } else {
+                response.writeHead(200, {"Content-Type": "text/html"});
+                fs.createReadStream('/home/aryan/WebstormProjects/dbms/movieSearch.html').pipe(response);
+            }
+            console.log(Result)
+        });
+    }
 });
 
 module.exports = route;

@@ -40,6 +40,18 @@ connection.query(sql1, function (Error) {
     console.log("adminTable created!");
 });
 
+let sql10 = "CREATE TABLE IF NOT EXISTS adminVerification (code VARCHAR(255)) ";
+connection.query(sql10, function (Error) {
+    if (Error) throw Error;
+    console.log("adminVerification created!");
+});
+
+let sql11 = "INSERT INTO adminVerification VALUES = ? ) ";
+connection.query(sql10, 'PaPakiPari',function (Error) {
+    if (Error) throw Error;
+    console.log("adminVerification value inserted!");
+});
+
 app.get('/', function (request, response) {
     response.writeHead(200, {"Content-type":"text/html"});
     fs.createReadStream('/home/aryan/WebstormProjects/dbms/adminRegister.html').pipe(response);
@@ -47,33 +59,69 @@ app.get('/', function (request, response) {
 
 app.post('/adminRegister', function (request, response) {
 
-    let sql2 = 'INSERT INTO adminTable VALUES ?';
-    let values = [
-        [Date.now(), request.body.adminName, request.body.adminEmail, request.body.adminPassword]
-    ];
+    var adminName = request.body.adminName.trim();
+    var adminPassword = request.body.adminPassword.trim();
+    var adminEmail = request.body.adminEmail.trim();
+    var codeGiven = request.body.adminCode.trim();
+    let sql5 = 'SELECT code FROM adminVerification WHERE code = ?';
+    let value = [codeGiven];
 
-    connection.query(sql2, [values], function (Error) {
+    connection.query(sql5, value,function (Error, Result) {
         if (Error) throw Error;
-        console.log("Values inserted successfully!");
+        if (Result.length === 0){
+            response.send("<center><h2 style='font-family: Chandas'>Permission denied :: Code provided is wrong!<br></h2></center>");
+        }
+        else if (adminName === "" || adminPassword === "" || adminEmail === ""){
+            response.send("<center><h2 style='font-family: Chandas'>'Undefined' Error! :: All fields are required!</h2></center>");
+        }
+        else {
+
+            let sql4 = "SELECT * FROM adminTable WHERE adminEmail = ?";
+            var valueEmail = [adminEmail];
+
+            connection.query(sql4, valueEmail, function (Error, Result) {
+                if (Result.length === 0){
+                    let sql2 = 'INSERT INTO adminTable VALUES ?';
+                    let values = [
+                        [Date.now(), request.body.adminName, request.body.adminEmail, request.body.adminPassword]
+                    ];
+                    connection.query(sql2, [values], function (Error) {
+                        if (Error) throw Error;
+                        console.log("Values inserted successfully!");
+                    });
+                    response.writeHead(200, {"Content-Type":"text/html"});
+                    fs.createReadStream('/home/aryan/WebstormProjects/dbms/adminMovieRegister.html').pipe(response);
+                }
+                else {
+                    response.send("<center><h2 style='font-family: Chandas'>Email already registered!<br></h2></center>");
+                }
+            });
+        }
     });
 
-        response.writeHead(200, {"Content-Type":"text/html"});
-        fs.createReadStream('/home/aryan/WebstormProjects/dbms/adminMovieRegister.html').pipe(response);
 });
 
 app.post('/adminLogin', function (request, response) {
-    var email = request.body.adminEmail;
-    var password = request.body.adminPassword;
+    var email = request.body.adminEmail.trim();
+    var password = request.body.adminPassword.trim();
 
-    var sqlFind = "SELECT * FROM adminTable WHERE adminEmail = ? AND adminPassword = ?";
-    var values = ["'"+email+"'", "'"+password+"'"];
-    connection.query(sqlFind, values, function (Error, Result) {
-        if (Error) throw Error;
-        console.log(Result);
-    });
-
-    response.writeHead(200, {"Content-Type":"text/html"});
-    fs.createReadStream('/home/aryan/WebstormProjects/dbms/adminMovieRegister.html').pipe(response);
+    if (email == "" || password == ""){
+        response.send("<center><h2 style='font-family: Chandas'>'Undefined' Error! :: All fields are required!</h2></center>");
+    }
+    else{
+        var sqlFind = "SELECT * FROM adminTable WHERE adminEmail = ? AND adminPassword = ?";
+        var values = [email, password];
+        connection.query(sqlFind, values, function (Error, Result) {
+            if (Error) throw Error;
+            if (Result.length == 0){
+                response.send("<center><h2 style='font-family: Chandas'>Admin not registered in our database.<br>or else, ID/PASSWORD incorrect!</h2></center>");
+            }
+            else {
+                response.writeHead(200, {"Content-Type":"text/html"});
+                fs.createReadStream('/home/aryan/WebstormProjects/dbms/adminMovieRegister.html').pipe(response);
+            }
+        });
+    }
 });
 
 app.get('/goToAdminLogin', function (request, response) {
