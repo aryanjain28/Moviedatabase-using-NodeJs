@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User register</title>
+	<link rel="stylesheet" type="text/css" href="http://localhost:3000/css/userRegisterCSS.css">
+	<script type="text/javascript">
+		function check(){
+			var x = false;
+
+			var name = document.getElementById("name").value.trim();
+			var email = document.getElementById("email").value.trim();
+			var pwd = document.getElementById("password").value.trim();
+			var cpwd = document.getElementById("cpassword").value.trim();
+			
+			if(name.length == 0 || email.length == 0 || pwd.length == 0 || cpwd.length == 0){
+				alert("Please enter complete details.");
+			}
+			else if(pwd != cpwd){
+				alert("Passwords don't match!")
+			}
+			else{
+				window.location.replace("welcome.html");
+			}
+		}
+	</script>
+</head>
+
+<body>
+
+	<div>
+		<form action="http://localhost:3000/userDatabase/userAdd" method="post">
+			<p class="heading">Sign Up</p>
+			<input name="userName" type="text"  id="name" placeholder="Full name"><br><br>
+			<input name="userEmail" type="email" id="email" placeholder="Email"><br><br>
+
+			<input name="userPassword" type="Password" id="password" placeholder="Password"><br><br>
+			<input type="Password" id="cpassword" placeholder="Confirm Password"><br><br>
+			<input type="submit" value="Sign up" onclick="check()"><br>
+			<p class="text">Already have an account? <u><a href="http://localhost:3000/goToUserLogin">Login here.</a></u></p>
+
+
+		</form>
+	</div>
+</body>
+</html>

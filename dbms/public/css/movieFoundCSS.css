@@ -1,0 +1,59 @@
+.parentFrame{
+    border: deeppink solid;
+    color: #F5F5F5;
+    text-align: center;
+    width: max-content;
+    margin-left: 19%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.childFrame{
+    border: blue solid;
+    width: max-content;
+    margin: 20px;
+}
+
+.heading{
+    border: #3b5998 solid;
+    width: 94.5%;
+    text-align: center;
+    margin: 20px;
+    font-size: 50px;
+}
+
+.poster{
+    border:  red solid;
+    width: 359px;
+    height: 500px;
+    margin: 20px;
+    display: inline-block;
+    float: left;
+}
+
+.content{
+    border: #F5F5F5 solid;
+    text-align: center;
+    width: max-content;
+    height: 500px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.text{
+    font-family: Arial;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+    /*margin-top: 10px;*/
+}
+
+.footer{
+    border: #F5F5F5 solid;
+    width: border-box;
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    font-family: Arial;
+
+}

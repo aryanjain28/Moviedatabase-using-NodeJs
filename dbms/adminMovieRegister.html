@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--    <link rel="stylesheet" type="text/css" href="http://localhost:3000/css/adminMovieRegisterCSS.css">-->
+    <meta charset="UTF-8">
+    <title>Movie register</title>
+</head>
+<body bgcolor="black" text="white">
+    <div class="background"></div>
+    <div class="frame">
+        <form action="http://localhost:3000/movieDatabase/movieAdd" method="post">
+            <p class="heading">Enter movie details.</p>
+            Movie name :            <input name="movieName" class="input" id="movieName" type="text" placeholder="eg. Kal ho na ho"><br>
+            Lead actor/actress :    <input name="actorName" class="input" id="movieActor" type="text" placeholder="eg. Shahrukh khan"><br>
+            Release date :          <input name="movieDate" class="input" id="movieDate" type="date" placeholder="Set password"><br>
+            Rating :                <input name="movieRating" class="input" id="movieRating" type="number" value="Add to database!"><br>
+            Budget :                <input name="movieBudget" class="input" id="movieBudget" type="text" placeholder="Add to database!"><br>
+            Net gross :             <input name="movieGross" class="input" id="movieGross" type="text" placeholder="Add to database!"><br>
+                                    <input name="button" class="" type="submit" value="Add">
+        </form>
+    </div>
+</body>
+</html>

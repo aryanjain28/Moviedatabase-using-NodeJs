@@ -1,0 +1,107 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.heading{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    padding-left: 50px;
+    text-align: left;
+    font-family: Chandas;
+    font-size: 30px;
+    color: #F5F5F5;
+    text-shadow: 1px 1px 1px black,
+    -1px -1px 1px black,
+    -1px 1px 1px black,
+    1px -1px 1px black,
+    10px 10px 10px black;
+}
+
+.link, a{
+    margin-right: 45px;
+    margin-top: 0px;
+    color: #F5F5F5;
+    text-align: right;
+    text-shadow: 1px 1px 1px black,
+    -1px -1px 1px black,
+    -1px 1px 1px black,
+    1px -1px 1px black;
+}
+
+.background{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    background-image: url("http://localhost:3000/images/marineDrive.jpg");
+    filter: blur(5px);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.frame{
+    position: absolute;
+    top: 20%;
+    left: 0%;
+    filter: blur(0px);
+    /*border: black solid 1px;*/
+    height: border-box;
+    width: 100%;
+    box-shadow: black 4px 4px 20px;
+    /*box-shadow: 10px 10px 100px black;*/
+    /*background-color: #3b5998;*/
+}
+
+input[type=email],input[type=password]{
+    margin: 50px;
+    margin-top: 10px;
+    margin-left: 70px;
+    padding: 15px;
+    text-align: center;
+    font-size: 25px;
+    width: 40%;
+    border: 0px;
+    border-radius: 5px;
+    /*background-color: #3b5998;*/
+    /*color: white;*/
+}
+
+
+input[type=submit]{
+    padding: 15px;
+    background-color: #3b5998;
+    color: white;
+    margin: 70px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 25px;
+    width:89%;
+}
+
+input[type=email]:hover, input[type=password]:hover{
+    box-shadow: black 10px 10px 30px;
+    transition: box-shadow ease-in-out 0.3s;
+}
+
+input[type=submit]:hover{
+    box-shadow: black 10px 10px 30px;
+    /*background-color: #4CAF50;*/
+    transition: box-shadow ease-in-out 0.3s,background-color ease-in-out 0.3s;
+}
+
+a:hover, .link:hover{
+    text-shadow: black 4px 4px 20px;
+    transition: text-shadow ease-in-out 0.3s;
+}

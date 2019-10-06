@@ -1,0 +1,85 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1{
+  font-size: 90px;
+  font-style: italic;
+  font-weight: bold;
+  font-family: Times New Roman;
+  text-align: center;
+  margin: 0px;
+  color: #F5F5F5;
+  text-shadow: 1px 1px 2px black,
+                -1px 1px 2px black,
+                1px -1px 2px black,
+                -1px -1px 2px black,
+                10px 10px 10px black;
+                
+}
+
+.bg {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%; 
+  background-image: url("http://localhost:3000/images/bg.jpeg");
+  filter: blur(3px);
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+div {
+  position: absolute;
+  top: 10%;
+  left: 30%;
+ /* border: solid;*/
+  padding: 50px;
+  font-size: 50px;
+  font-weight: bolder;
+  font-style: italic;
+  text-shadow: 10px 10px 10px grey;
+  box-shadow: 15px 15px 90px black;
+}
+
+input[type="text"]{
+  font-size: 20px;  
+  margin: 20px;
+  padding: 20px;
+  width: 90%;
+  text-align: center;
+  border: 0px;
+}
+
+
+input[type="button"],input[type="submit"]{
+  font-size: 20px;
+  margin: 20px;
+  padding: 15px;
+  width: 90%;
+  text-align: center;
+  background-color:  #17833F;
+  border: 0px;
+  color: cornsilk;
+}
+
+input[type="text"]:hover{
+  box-shadow: 10px 10px 50px black;
+  transition: box-shadow 0.3s ease;
+}
+
+
+input[type="button"]:hover,input[type="submit"]:hover{
+  background-color: #3b5998;
+  transition: background-color 0.3s ease;
+}

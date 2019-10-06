@@ -1,0 +1,94 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #F5F5F5;
+}
+
+* {
+    box-sizing: border-box;
+}
+.background{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    background-image: url("http://localhost:3000/images/marineDrive.jpg");
+    filter: blur(5px);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.link, a{
+    text-align: center;
+    color: #F5F5F5;
+    margin: 15px;
+    text-shadow: 1px 1px 1px black,
+    -1px -1px 1px black,
+    -1px 1px 1px black,
+    1px -1px 1px black;
+}
+
+.heading{
+    margin: 5px;
+    padding-left: 35px;
+    padding-top: 50px;
+    text-align: left;
+    padding-bottom: 0;
+    font-family: Chandas;
+    font-size: 22px;
+    color: #F5F5F5;
+    text-shadow: 1px 1px 1px black,
+    -1px -1px 1px black,
+    -1px 1px 1px black,
+    1px -1px 1px black;
+}
+
+.frame{
+    position: absolute;
+    top: 14%;
+    left: 7%;
+    /*border: #F5F5F5 solid 2px;*/
+    height: border-box;
+    box-shadow: 1px 1px 50px black,
+    -1px -1px 50px black,
+    -1px 1px 50px black,
+    1px -1px 50px black;
+    border-radius: 5px;
+}
+
+.input{
+    margin-right: 40px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    width: 80%;
+    border: 0px;
+    border-radius: 5px;
+}
+
+input[type=text]{
+    margin-top: 10px;
+}
+
+input[type=submit]{
+    padding: 20px;
+    background-color: #17833F;
+    color: azure;
+}
+
+input[type=email]:hover, input[type=password]:hover, input[type=text]:hover{
+    box-shadow: black 10px 10px 30px;
+    transition: box-shadow ease-in-out 0.3s;
+}
+
+input[type=submit]:hover{
+    box-shadow: black 10px 10px 30px;
+    background-color: #4CAF50;
+    transition: box-shadow ease-in-out 0.3s,background-color ease-in-out 0.3s;
+}
