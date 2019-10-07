@@ -24,7 +24,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="HTML" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.10.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../aryantemp" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
@@ -74,7 +74,7 @@
       <workItem from="1570126866646" duration="4026000" />
       <workItem from="1570131123613" duration="8672000" />
       <workItem from="1570257246150" duration="58110000" />
-      <workItem from="1570369599314" duration="47657000" />
+      <workItem from="1570369599314" duration="65011000" />
     </task>
     <servers />
   </component>

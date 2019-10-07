@@ -19,7 +19,7 @@ body{
 
 .frame{
     position: absolute;
-    top:12%;
+    top:15%;
     left: 38%;
     height: max-content;
     width: max-content;
@@ -115,8 +115,30 @@ input[type=email]:hover, input[type=password]:hover, input[type=text]:hover, inp
     transition: box-shadow ease-in-out 0.3s,background-color ease-in-out 0.3s;
 }
 
-.advanceSubmit:hover{
+.advanceSubmit:hover, #submitPoster:hover{
     box-shadow: black 10px 10px 30px;
     background-color: #3b5998;
     transition: box-shadow ease-in-out 0.3s,background-color ease-in-out 0.3s;
+}
+
+#logOut{
+    position: absolute;
+    top: 2%;
+    left: 85%;
+    padding-top: 2px;
+    padding-right:5px;
+    padding-left: 5px;
+    background-color: #e00d03;
+    width: 100px;
+    height: max-content;
+    font-size: 20px;
+    color: #F5F5F5;
+    border: 0;
+    border-radius: 5px;
+    font-family: Chandas;
+}
+#logOut:hover{
+    box-shadow: 5px 5px 85px black;
+    background-color: #ce0504;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }

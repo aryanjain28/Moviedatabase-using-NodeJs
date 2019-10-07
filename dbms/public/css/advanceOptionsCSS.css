@@ -53,7 +53,7 @@ body{
 .frame{
     border: #F5F5F5 solid 1px;
     position: absolute;
-    top:10%;
+    top:15%;
     left: 5%;
     height: max-content;
     width: 40%;
@@ -75,7 +75,7 @@ body{
 .frame1{
     border: #F5F5F5 solid 1px;
     position: absolute;
-    top:10%;
+    top:15%;
     left: 55%;
     height: 480px;
     width: 40%;
@@ -199,4 +199,26 @@ input[type=email]:hover, input[type=password]:hover, input[type=text]:hover, inp
     background-color: #3b5998;
     box-shadow: black 10px 10px 30px;
     transition: box-shadow ease-in-out 0.3s,background-color ease-in-out 0.3s;
+}
+
+#logOut{
+    position: absolute;
+    top: 2%;
+    left: 88%;
+    padding-top: 2px;
+    padding-right:5px;
+    padding-left: 5px;
+    background-color: #e00d03;
+    width: 100px;
+    height: max-content;
+    font-size: 20px;
+    color: #F5F5F5;
+    border: 0;
+    border-radius: 5px;
+    font-family: Chandas;
+}
+#logOut:hover{
+    box-shadow: 5px 5px 85px black;
+    background-color: #ce0504;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }

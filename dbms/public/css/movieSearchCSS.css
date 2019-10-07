@@ -1,7 +1,7 @@
 body, html {
   height: 100%;
+  width:100%;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -9,10 +9,10 @@ body, html {
 }
 
 h1{
-  font-size: 90px;
-  font-style: italic;
+  font-size: 70px;
   font-weight: bold;
-  font-family: Times New Roman;
+  font-style: italic;
+  font-family: Arial;
   text-align: center;
   margin: 0px;
   color: #F5F5F5;
@@ -21,36 +21,27 @@ h1{
                 1px -1px 2px black,
                 -1px -1px 2px black,
                 10px 10px 10px black;
-                
+  opacity: 0.9;
 }
 
-.bg {
+.frame {
   position: absolute;
-  top: 0%;
-  left: 0%;
-  right: 0%;
-  bottom: 0%; 
-  background-image: url("http://localhost:3000/images/bg.jpeg");
-  filter: blur(3px);
-  height: 100%; 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-
-div {
-  position: absolute;
-  top: 10%;
+  top: 15%;
   left: 30%;
- /* border: solid;*/
+  /*border: solid;*/
+  border-radius: 5px;
   padding: 50px;
   font-size: 50px;
   font-weight: bolder;
-  font-style: italic;
   text-shadow: 10px 10px 10px grey;
   box-shadow: 15px 15px 90px black;
+}
+
+#logOut{
+  position: absolute;
+  left: 90%;
+  background-color: #ce0504;
+  width: max-content;
 }
 
 input[type="text"]{
@@ -59,28 +50,90 @@ input[type="text"]{
   padding: 20px;
   width: 90%;
   text-align: center;
-  border: 0px;
+  /*border: black 1px solid;*/
+  border: 0;
+  border-radius: 5px;
+  opacity: 0.5;
 }
 
 
-input[type="button"],input[type="submit"]{
+input[type="button"],input[type="submit"], button{
   font-size: 20px;
   margin: 20px;
   padding: 15px;
   width: 90%;
   text-align: center;
   background-color:  #17833F;
-  border: 0px;
   color: cornsilk;
+  border: 0px;
+  border-radius: 5px;
+  opacity: 0.9;
 }
 
 input[type="text"]:hover{
   box-shadow: 10px 10px 50px black;
-  transition: box-shadow 0.3s ease;
+  opacity: 1;
+  transition: box-shadow 0.3s ease,opacity 0.3s ease;
 }
 
 
-input[type="button"]:hover,input[type="submit"]:hover{
+input[type="button"]:hover,input[type="submit"]:hover, button:hover{
   background-color: #3b5998;
-  transition: background-color 0.3s ease;
+  opacity: 1;
+  transition: background-color 0.3s ease,opacity 0.3s ease;
+}
+
+.image{
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+#imag0{background-image: url("http://localhost:3000/animation/0.jpg");}
+#imag1{background-image: url("http://localhost:3000/animation/1.jpg");}
+#imag2{background-image: url("http://localhost:3000/animation/2.jpg");}
+#imag3{background-image: url("http://localhost:3000/animation/3.jpg");}
+#imag4{background-image: url("http://localhost:3000/animation/4.jpg");}
+#imag5{background-image: url("http://localhost:3000/animation/5.jpg");}
+#imag6{background-image: url("http://localhost:3000/animation/6.jpg");}
+#imag7{background-image: url("http://localhost:3000/animation/7.jpg");}
+#imag8{background-image: url("http://localhost:3000/animation/8.jpg");}
+#imag9{background-image: url("http://localhost:3000/animation/9.jpg");}
+#imag10{background-image: url("http://localhost:3000/animation/10.jpg");}
+#imag11{background-image: url("http://localhost:3000/animation/11.jpg");}
+#imag12{background-image: url("http://localhost:3000/animation/12.jpg");}
+#imag13{background-image: url("http://localhost:3000/animation/13.jpg");}
+#imag14{background-image: url("http://localhost:3000/animation/14.jpg");}
+#imag15{background-image: url("http://localhost:3000/animation/15.jpg");}
+#imag16{background-image: url("http://localhost:3000/animation/16.jpg");}
+#imag17{background-image: url("http://localhost:3000/animation/17.jpg");}
+#imag18{background-image: url("http://localhost:3000/animation/18.jpg");}
+#imag19{background-image: url("http://localhost:3000/animation/19.jpg");}
+#imag20{background-image: url("http://localhost:3000/animation/20.jpg");}
+#imag21{background-image: url("http://localhost:3000/animation/21.jpg");}
+#imag22{background-image: url("http://localhost:3000/animation/22.jpg");}
+#imag23{background-image: url("http://localhost:3000/animation/23.jpg");}
+#imag24{background-image: url("http://localhost:3000/animation/24.jpg");}
+#imag25{background-image: url("http://localhost:3000/animation/25.jpg");}
+#imag26{background-image: url("http://localhost:3000/animation/26.jpg");}
+
+
+.mySlides {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 1.5s;
+}
+
+@keyframes fadeIn {
+  from {opacity: .4}
+  to {opacity: 1}
 }

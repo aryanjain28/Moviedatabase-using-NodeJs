@@ -3,7 +3,7 @@
 <head>
     <script src="database.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="http://localhost:3000/css/movieSearchCSS.css">
-    <title>Movie Database!</title>
+    <title>Movie search!</title>
     <script>
         function textChange() {
             flag = 0;
@@ -27,19 +27,69 @@
             };
         }
     </script>
+
 </head>
 <body>
 
-  <div class="bg"></div>
+<div class="mySlides"><div class="image fadeIn" id="imag0"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag1"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag2"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag3"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag4"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag5"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag6"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag7"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag8"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag9"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag10"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag11"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag12"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag13"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag14"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag15"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag16"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag17"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag18"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag19"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag20"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag21"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag22"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag23"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag24"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag25"></div></div>
+<div class="mySlides"><div class="image fadeIn" id="imag26"></div></div>
 
-  <div>
-      <h1>Movie Database</h1><br>
-      <form action="http://localhost:3000/movieDatabase/getMovie">
-          <input name="searchElement" type="text" id="textInput" placeholder="Enter movie name."><br>
-          <input type="submit" id="searchButton" value="Search">
-          <input type="button" id="anotherButton" value="..or enter actor's name." onclick="textChange()">
-      </form>
-  </div>
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 4000); // Change image every 4 seconds
+    }
+</script>
+
+
+<div class="frame">
+    <h1>Movie Database</h1>
+    <form action="http://localhost:3000/movieDatabase/getMovie">
+        <input name="searchElement" type="text" id="textInput" placeholder="Enter movie name."><br>
+        <input type="submit" id="searchButton" value="Search">
+        <input type="button" id="anotherButton" value="..or enter actor's name." onclick="textChange()">
+    </form>
+</div>
+
+<form action="http://localhost:3000/goToUserLogin">
+    <input type="submit" value="Log out" id="logOut">
+</form>
 
 </body>
 </html>

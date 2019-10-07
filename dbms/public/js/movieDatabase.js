@@ -57,16 +57,16 @@ route.post('/upload', function (request, response) {
             imageLink = "http://localhost:3000/uploads/"+request.file.filename;
             console.log(request.file.filename);
             console.log(imageLink);
-            response.send("<center><h1><i>Image uploaded!<i><h1><center>")
+            response.send("<center><h1><i><marquee behavior='alternate' scrollamount='5'>Image uploaded!</marquee><i><h1><center>")
         }
     });
 });
 
 route.post('/movieAdd', function (request, response) {
 
-    var movieName = request.body.movieName;
-    var actorName = request.body.actorName;
-    var movieDate = request.body.movieDate;
+    var movieName = request.body.movieName.trim();
+    var actorName = request.body.actorName.trim();
+    var movieDate = request.body.movieDate.trim();
     var movieRating = parseInt(request.body.movieRating.trim());
     var movieBudget = parseInt(request.body.movieBudget.trim());
     var movieGross = parseInt(request.body.movieGross.trim());

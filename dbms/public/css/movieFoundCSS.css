@@ -52,9 +52,10 @@ body, html {
 }
 
 .poster{
+    /*border: #ce0504 solid;*/
     border-radius: 10px;
-    width: 359px;
-    height: max-content;
+    width: max-content;
+    height: 420px;
     margin: 50px;
     margin-left: 60px;
     margin-bottom: 80px;
@@ -102,6 +103,28 @@ body, html {
 
 }
 
+#logOut{
+    position: fixed;
+    top: 25px;
+    left: 90%;
+    padding-top: 2px;
+    padding-right:5px;
+    padding-left: 5px;
+    background-color: #e00d03;
+    width: 100px;
+    height: max-content;
+    font-size: 20px;
+    color: #F5F5F5;
+    border: 0;
+    border-radius: 5px;
+    font-family: Chandas;
+}
+#logOut:hover{
+    box-shadow: 5px 5px 85px black;
+    background-color: #ce0504;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
 .separator{
     margin-left: 15%;
     margin-top: 80px;
@@ -109,93 +132,4 @@ body, html {
     border:  #cccccc 1px solid;
     width: 70%;
     height: 0px;
-}
-
-
-.container
-{
-    width:100%;
-    height:100%;
-}
-#slideshow {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    width:100%;
-    height:100%;
-    display: inline-block;
-}
-.element,.element1,.element2,.element3 {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    display: inline-block;
-    text-align: center;
-}
-
-.element {
-    animation: xfade 16s 8s infinite;
-    background-image: url('http://localhost:3000/images/photo.jpeg');
-}
-.element1 {
-    animation: xfade 16s 6s infinite;
-    background-image: url('http://localhost:3000/images/ironman.jpg');
-
-}
-.element2 {
-    animation: xfade 16s 2s infinite;
-    background-image: url('http://localhost:3000/images/marineDrive.jpg');
-}
-.element3 {
-    animation: xfade 16s 0s infinite;
-    background-image: url('http://localhost:3000/images/admin.jpg');
-}
-
-@keyframes xfade{
-    17% {
-        opacity:1;
-    }
-    25% {
-        opacity:0;
-    }
-    92% {
-        opacity:0;
-    }
-}
-@keyframes xfade1{
-    17% {
-        opacity:1;
-    }
-    25% {
-        opacity:0;
-    }
-    92% {
-        opacity:0;
-    }
-}
-@keyframes xfade2{
-    17% {
-        opacity:1;
-    }
-    25% {
-        opacity:0;
-    }
-    92% {
-        opacity:0;
-    }
-}
-@keyframes xfade3{
-    17% {
-        opacity:1;
-    }
-    25% {
-        opacity:0;
-    }
-    92% {
-        opacity:0;
-    }
 }

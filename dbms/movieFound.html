@@ -11,7 +11,7 @@
         <div class="childFrame">
             <div class="heading"><%= name[i].movieName %></div>
             <div class="poster">
-                <img src= <%= name[i].imageLink %> style="width: inherit"/>
+                <img src= <%= name[i].imageLink %> style="height: 100%"/>
             </div>
             <div class="content">
                 <div class="text">Lead actor : <%= name[i].actorName %> </div><br><br>
@@ -26,5 +26,10 @@
         <% } %>
         <div class="footer">Thank you.</div>
     </div>
+
+    <form action="http://localhost:3000/goToUserLogin">
+        <input type="submit" value="Log out" id="logOut">
+    </form>
+
 </body>
 </html>
