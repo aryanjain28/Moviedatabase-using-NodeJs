@@ -40,18 +40,6 @@ connection.query(sql1, function (Error) {
     console.log("adminTable created!");
 });
 
-let sql10 = "CREATE TABLE IF NOT EXISTS adminVerification (code VARCHAR(255)) ";
-connection.query(sql10, function (Error) {
-    if (Error) throw Error;
-    console.log("adminVerification created!");
-});
-
-let sql11 = "INSERT INTO adminVerification VALUES = ? ) ";
-connection.query(sql10, 'PaPakiPari',function (Error) {
-    if (Error) throw Error;
-    console.log("adminVerification value inserted!");
-});
-
 app.get('/', function (request, response) {
     response.writeHead(200, {"Content-type":"text/html"});
     fs.createReadStream('/home/aryan/WebstormProjects/dbms/adminRegister.html').pipe(response);
@@ -59,12 +47,12 @@ app.get('/', function (request, response) {
 
 app.post('/adminRegister', function (request, response) {
 
-    var adminName = request.body.adminName.trim();
-    var adminPassword = request.body.adminPassword.trim();
-    var adminEmail = request.body.adminEmail.trim();
-    var codeGiven = request.body.adminCode.trim();
-    let sql5 = 'SELECT code FROM adminVerification WHERE code = ?';
-    let value = [codeGiven];
+    let adminName = request.body.adminName.trim();
+    let adminPassword = request.body.adminPassword.trim();
+    let adminEmail = request.body.adminEmail.trim();
+    let codeGiven = request.body.adminCode.trim();
+    let sql5 = 'SELECT * FROM adminVerification WHERE code = ? AND email = ?';
+    let value = [codeGiven, adminEmail];
 
     connection.query(sql5, value,function (Error, Result) {
         if (Error) throw Error;

@@ -1,0 +1,202 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #F5F5F5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("http://localhost:3000/images/advance.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 800px;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.frameButton1{
+    /*border: #2f477a solid;*/
+    height: max-content;
+    width: 38%;
+    float: left;
+    display: inline-block;
+    margin-left: 60px;
+}
+
+.frameButton2{
+    /*border: #ce0504 solid;*/
+    height: max-content;
+    width: 38%;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+#showRequest{
+    background-color: #2f477a;
+    width: 100%;
+    text-align: center;
+}
+
+#deleteRequest{
+    background-color: #ce0504;
+    width: 100%;
+    text-align: center;
+}
+
+#showRequest, #deleteRequest{
+    display: inline-block;
+}
+
+.frame{
+    border: #F5F5F5 solid 1px;
+    position: absolute;
+    top:10%;
+    left: 5%;
+    height: max-content;
+    width: 40%;
+    box-shadow: 1px 1px 50px black,
+    -1px -1px 50px black,
+    -1px 1px 50px black,
+    1px -1px 50px black;
+    border-radius: 5px;
+}
+
+.border{
+    border: dimgray solid 0.1px;
+    width: 0px;
+    height: 400px;
+    margin-left: 50%;
+    margin-top: 8%;
+}
+
+.frame1{
+    border: #F5F5F5 solid 1px;
+    position: absolute;
+    top:10%;
+    left: 55%;
+    height: 480px;
+    width: 40%;
+    box-shadow: 1px 1px 50px black,
+    -1px -1px 50px black,
+    -1px 1px 50px black,
+    1px -1px 50px black;
+    border-radius: 5px;
+}
+
+.deleteMovieName{
+    margin-left: 60px;
+    margin-bottom: 30px;
+    padding: 11px;
+    font-size: 20px;
+    width: 55%;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.editingButton{
+    background-color: #ce0504;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 45px;
+    width: 130px;
+    border: 0;
+    border-radius: 5px;
+    color: #F5F5F5;
+    text-align: center;
+}
+
+#generateButton, #showButton{
+    background-color: #2f477a;
+}
+
+
+.heading{
+    width: max-content;
+    margin: 5px;
+    margin-left: 15px;
+    padding-left: 45px;
+    padding-top: 5px;
+    text-align: left;
+    padding-bottom: 0;
+    font-family: Chandas;
+    font-size: 18px;
+    color: #F5F5F5;
+    text-shadow: 1px 1px 1px black,
+    -1px -1px 1px black,
+    -1px 1px 1px black,
+    1px -1px 1px black;
+}
+
+.input{
+    margin-left: 60px;
+    margin-bottom: 30px;
+    padding: 15px;
+    font-size: 20px;
+    width: 30%;
+    border: 0px;
+    border-radius: 5px;
+}
+
+input[type=file]{
+    background-color: #F5F5F5;
+    padding:9px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    color: black;
+    margin-top: 0px;
+    margin-left: 60px;
+    width: 46.5%;
+
+}
+
+#submitPoster{
+    background-color: #2f477a;
+    padding: 15px;
+    border: 0;
+    border-radius: 5px;
+    color: #F5F5F5;
+}
+
+.mainSubmit{
+    height: 50px;
+    width: 73%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    margin-left: 60px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 0px;
+    background-color: #17833F;
+    color: azure;
+}
+
+
+input[type=email]:hover, input[type=password]:hover, input[type=text]:hover, input[type=file]:hover,input[type=number]:hover,input[type=date]:hover{
+    box-shadow: black 10px 10px 30px;
+    transition: box-shadow ease-in-out 0.3s;
+}
+
+.mainSubmit:hover{
+    box-shadow: black 10px 10px 30px;
+    background-color: #45a049;
+    transition: box-shadow ease-in-out 0.3s,background-color ease-in-out 0.3s;
+}
+
+#deleteButton:hover{
+    background-color: #e00d03;
+    box-shadow: black 10px 10px 30px;
+    transition: box-shadow ease-in-out 0.3s,background-color ease-in-out 0.3s;
+}
+
+#generateButton:hover, #showButton:hover, #submitPoster:hover,#showRequest:hover{
+    background-color: #3b5998;
+    box-shadow: black 10px 10px 30px;
+    transition: box-shadow ease-in-out 0.3s,background-color ease-in-out 0.3s;
+}

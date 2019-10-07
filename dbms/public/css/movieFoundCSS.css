@@ -52,11 +52,12 @@ body, html {
 }
 
 .poster{
-    border-radius: 5px;
+    border-radius: 10px;
     width: 359px;
     height: max-content;
     margin: 50px;
     margin-left: 60px;
+    margin-bottom: 80px;
     display: inline-block;
     float: left;
     box-shadow: 10px 10px 20px black;

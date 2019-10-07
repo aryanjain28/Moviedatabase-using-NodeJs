@@ -9,7 +9,9 @@
 body{
 	background-image: url("http://localhost:3000/images/background1.jpg");
 	background-repeat: no-repeat;
-    background-size: 100% 800px;
+    background-size: 100% 1000px;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 div{

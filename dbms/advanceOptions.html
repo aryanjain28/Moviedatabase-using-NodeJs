@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="http://localhost:3000/css/advanceOptionsCSS.css">
+    <meta charset="UTF-8">
+    <title>Advance options</title>
+</head>
+<body bgcolor="black" text="white">
+<div class="background"></div>
+<div class="frame">
+    <div class="heading">Enter movie details for updation :</div>
+    <form action="http://localhost:3000/movieDatabase/upload" method="post" enctype="multipart/form-data">
+        <input name="myImage" type="file" accept="image/*">
+        <input id="submitPoster" type="submit" value="Upload poster">
+    </form>
+    <br><br>
+    <form action="http://localhost:3000/movieDatabase/movieUpdate" method="post">
+        <input name="movieName" class="input" id="movieName" type="text" placeholder="Movie name">
+        <input name="actorName" class="input" id="movieActor" type="text" placeholder="Actor/Actress"><br>
+        <input name="movieBudget" class="input" id="movieBudget" type="text" placeholder="Budget">
+        <input name="movieGross" class="input" id="movieGross" type="text" placeholder="Net gross"><br>
+        <input name="movieDate" class="input" id="movieDate" type="date" placeholder="Release date">
+        <input name="movieRating" class="input" id="movieRating" type="number" placeholder="Rating" max="5" min="1"><br>
+        <input name="button" class="mainSubmit" type="submit" value="Update">
+    </form>
+</div>
+
+<div class="border"></div>
+
+<div class="frame1">
+    <div class="heading">Enter editing details :</div>
+    <form action="http://localhost:3000/movieDatabase/movieDelete" method="post">
+        <input name="deleteMovieName" class="deleteMovieName" type="text" placeholder="Movie name">
+        <input  class="editingButton" id="deleteButton" type="submit" value="Delete">
+    </form>
+
+    <form action="http://localhost:3000/movieDatabase/showMovies" method="post">
+        <input name="showMovies" class="deleteMovieName" type="text" placeholder="Movie/actor name">
+        <input  class="editingButton" id="showButton" type="submit" value="Show">
+    </form>
+
+    <div class="heading">Generate code for admin add :</div>
+    <form action="http://localhost:3000/movieDatabase/generateCode" method="post">
+        <input name="email" class="deleteMovieName" type="text" placeholder="Enter email">
+        <input  class="editingButton" id="generateButton" type="submit" value="Generate">
+    </form>
+
+    <div class="heading">Functionalities for user requests :</div>
+
+    <form action="http://localhost:3000/movieDatabase/showRequest" method="post">
+        <div class="frameButton1"><input  class="editingButton" id="showRequest" type="submit" value="Show all"></div>
+    </form>
+
+    <form action="http://localhost:3000/movieDatabase/deleteRequests" method="post">
+        <div class="frameButton2"><input  class="editingButton" id="deleteRequest" type="submit" value="Delete all"></div>
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -14,11 +14,12 @@ body{
     background-repeat: no-repeat;
     background-size: 100% 800px;
     background-position: center;
+    background-attachment: fixed;
 }
 
 .frame{
     position: absolute;
-    top: 10%;
+    top:12%;
     left: 38%;
     height: max-content;
     width: max-content;
@@ -62,6 +63,7 @@ input[type=file]{
     padding-right: 5px;
     border-radius: 5px;
     color: black;
+    margin-top: 0px;
     margin-left: 50px;
     width: 64%;
 
@@ -81,10 +83,24 @@ input[type=file]{
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 5px;
-    margin: 30px;
     margin-left: 50px;
+    margin-top: 5px;
     border: 0px;
     background-color: #17833F;
+    color: azure;
+}
+
+.advanceSubmit{
+    height: 50px;
+    width: 87%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    border: 0px;
+    background-color: #2f477a;
     color: azure;
 }
 
@@ -93,8 +109,14 @@ input[type=email]:hover, input[type=password]:hover, input[type=text]:hover, inp
     transition: box-shadow ease-in-out 0.3s;
 }
 
-input[type=submit]:hover{
+.mainSubmit:hover{
     box-shadow: black 10px 10px 30px;
-    background-color: #17833F;
+    background-color: #45a049;
+    transition: box-shadow ease-in-out 0.3s,background-color ease-in-out 0.3s;
+}
+
+.advanceSubmit:hover{
+    box-shadow: black 10px 10px 30px;
+    background-color: #3b5998;
     transition: box-shadow ease-in-out 0.3s,background-color ease-in-out 0.3s;
 }

@@ -1,7 +1,9 @@
 body {
     background: url("http://localhost:3000/images/ironman.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 800px;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 div {
